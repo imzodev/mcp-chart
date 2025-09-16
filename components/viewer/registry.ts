@@ -20,3 +20,29 @@ export async function resolvePresentation(id: string): Promise<PresentationModul
     return null;
   }
 }
+
+export type PresentationIndexItem = {
+  id: string;
+  title?: string;
+  description?: string;
+};
+
+// Returns a list of available presentations (ids and optional meta)
+export async function listPresentations(): Promise<PresentationIndexItem[]> {
+  const entries = Object.entries(registry);
+  const results = await Promise.all(
+    entries.map(async ([id, loader]) => {
+      try {
+        const mod = await loader();
+        return {
+          id,
+          title: mod?.meta?.title,
+          description: mod?.meta?.description,
+        } as PresentationIndexItem;
+      } catch {
+        return { id } as PresentationIndexItem;
+      }
+    })
+  );
+  return results.sort((a, b) => a.id.localeCompare(b.id));
+}
