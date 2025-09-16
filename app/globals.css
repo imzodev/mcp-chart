@@ -12,8 +12,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Class-based dark mode (next-themes) */
+html.dark {
+  color-scheme: dark;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* Fallback to OS preference only when no explicit class is present (pre-hydration) */
 @media (prefers-color-scheme: dark) {
-  :root {
+  html:not(.dark):not(.light) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }

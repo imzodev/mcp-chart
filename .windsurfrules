@@ -4,52 +4,83 @@
 Present es un visor de presentaciones que se integra con Windsurf IDE para mostrar presentaciones generadas por Cascade. El foco está en una experiencia de visualización fluida y atractiva.
 
 ## 🎨 Estilo de Código
-- **TypeScript estricto** en todo el proyecto
-- **Convenciones de nomenclatura**:
-  - Componentes: `PascalCase` (ej. `SlideViewer.tsx`)
+- TypeScript estricto en todo el proyecto
+- Convenciones de nomenclatura:
+  - Componentes: PascalCase (ej. [SlideViewer.tsx](cci:7://file:///home/irving/webdev/yt/mcp-chart/components/viewer/SlideViewer.tsx:0:0-0:0))
   - Hooks: prefijo `use` (ej. `usePresentation.ts`)
-  - Utilidades: `camelCase` (ej. `formatDate.ts`)
-- **Estilos**: Usar Tailwind CSS con clases de utilidad
-- **Formato**: 2 espacios para indentación, comillas simples
-
+  - Utilidades: camelCase (ej. `formatDate.ts`)
+- Estilos: Tailwind CSS con clases de utilidad
+- Formato: 2 espacios de indentación, comillas simples
 
 ## 🧠 Comportamiento de Cascade
-- **Generación de código**:
+- Generación de código:
   - Seguir la estructura existente
   - Crear componentes pequeños y reutilizables
   - Documentar props con TypeScript
-- **Modificaciones**:
+- Modificaciones:
   - No modificar archivos sin confirmación
   - Explicar cambios propuestos
   - Mantener consistencia con el código existente
-- **Presentaciones**:
-  - Crear componentes de React completos para cada presentación
-  - Ubicación: `/app/(viewer)/[id]/presentation.tsx`
-  - Incluir animaciones con Framer Motion
-  - Usar componentes interactivos de shadcn/ui
-  - Implementar navegación entre diapositivas con estado de React
-  - Soporte para temas oscuro/claro
+
+## 🖼️ Presentaciones (cómo crear y dónde ubicarlas)
+- Ubicación del archivo por presentación:
+  - Crear `app/(viewer)/[id]/presentation.tsx` (reemplazar `[id]` por el identificador de la presentación; p. ej. `climate-2025`)
+- Contrato de la presentación:
+  - Opción A: exportar `slides: ReactNode[]` y opcionalmente `meta`
+    - `meta` puede incluir: `title`, `description`, `author`, `date`
+  - Opción B: export por defecto de un componente React si no usas `slides`
+- Registro para el bundler:
+  - Agregar el `[id]` en [components/viewer/registry.ts](cci:7://file:///home/irving/webdev/yt/mcp-chart/components/viewer/registry.ts:0:0-0:0) para asegurar que el módulo se incluya en el bundle
+  - Ejemplo:
+    ```ts
+    export const registry = {
+      'climate-2025': async () =>
+        import('@/app/(viewer)/climate-2025/presentation').then((m) => ({
+          default: (m as any).default,
+          slides: (m as any).slides,
+          meta: (m as any).meta,
+        })),
+      // ...otras entradas
+    }
+    ```
+- Tecnologías a utilizar dentro de las presentaciones:
+  - shadcn/ui para componentes interactivos y accesibles
+  - Framer Motion para animaciones (transiciones entre diapositivas y micro-interacciones)
+  - Tailwind CSS para estilos con utilidades
+- Navegación:
+  - El visor provee teclado (← → o H/L), botones Prev/Next y pantalla completa (tecla `F`)
+- Tema:
+  - Soporte claro/oscuro mediante `next-themes` (la UI debe respetar variables de color)
+- Accesibilidad:
+  - Usar `aria-label`, roles correctos y jerarquía semántica en el contenido
+
+## 🔎 Obtención de información (búsqueda y fuentes)
+- Antes de generar contenido para cada diapositiva:
+  - Utilizar capacidades de búsqueda para obtener información relevante y actual (papers, reportes, docs oficiales)
+  - Resumir y citar fuentes cuando corresponda (enlaces o mención breve)
+  - Priorizar datos verificables y actuales; evitar información especulativa sin soporte
+- Mantener un tono claro y conciso, optimizado para lectura en diapositivas
 
 ## 🔄 Flujo de Trabajo
-1. **Generación**:
-   - Crear presentaciones como componentes React en `/app/(viewer)/[id]/presentation.tsx`
-   - Usar el patrón de diseño de composición para las diapositivas
-   - Exportar cada presentación como un componente React estándar
-2. **Componentes**:
-   - Crear componentes reutilizables en `/components/viewer`
-   - Usar `forwardRef` para componentes interactivos
-   - Implementar controles de navegación personalizables
-3. **Estados**:
-   - Usar el hook `useState` para el manejo de estado local
-   - Implementar `useReducer` para lógica de presentación compleja
-   - Usar `useContext` para temas y preferencias globales
-4. **Efectos**:
-   - Usar `useEffect` para cargar datos asíncronos
+1. Generación:
+   - Crear la presentación como `app/(viewer)/[id]/presentation.tsx`
+   - Usar el patrón de composición de React para las diapositivas
+   - Exportar `slides` y `meta` cuando sea posible (recomendado)
+2. Componentes:
+   - Reutilizar bloques en `components/viewer`
+   - Usar `forwardRef` cuando se creen elementos interactivos reutilizables
+   - Mantener controles de navegación simples y consistentes
+3. Estados:
+   - `useState` para estado local de diapositivas
+   - `useReducer` para lógica más compleja de presentaciones
+   - `useContext` para temas/preferencias globales
+4. Efectos:
+   - `useEffect` para cargar datos asíncronos si aplica
    - Implementar eventos de teclado para navegación
-   - Gestionar suscripciones y limpieza adecuadamente
+   - Limpiar suscripciones adecuadamente
 
 ## 📝 Directrices Adicionales
-- Priorizar la accesibilidad (a11y)
-- Optimizar el rendimiento de carga
-- Mantener el código limpio y documentado
+- Priorizar accesibilidad (a11y)
+- Optimizar rendimiento de carga
+- Mantener el código limpio, tipado y documentado
 - Seguir las mejores prácticas de React 19
