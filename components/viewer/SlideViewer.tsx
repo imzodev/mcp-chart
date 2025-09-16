@@ -64,7 +64,15 @@ export function SlideViewer({ slides, startIndex = 0, onIndexChange }: SlideView
 
   return (
     <div className="w-full h-full grid grid-rows-[1fr_auto]">
-      <div ref={containerRef} className="relative w-full h-full overflow-hidden rounded-xl border border-black/10 dark:border-white/10 bg-black/2 dark:bg-white/2">
+      <div
+        ref={containerRef}
+        className={
+          "relative w-full h-full overflow-hidden rounded-xl border border-black/10 dark:border-white/10 " +
+          (isFullscreen
+            ? "bg-[var(--background)] text-[var(--foreground)]"
+            : "bg-black/2 dark:bg-white/2")
+        }
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={clamped}
