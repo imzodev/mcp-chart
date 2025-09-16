@@ -21,6 +21,18 @@ export const registry: Record<string, () => Promise<PresentationModule>> = {
       slides: (m as any).slides,
       meta: (m as any).meta,
     })),
+  "ia-desempleo-2025": async () =>
+    import("@/app/(viewer)/ia-desempleo-2025/presentation").then((m) => ({
+      default: (m as any).default,
+      slides: (m as any).slides,
+      meta: (m as any).meta,
+    })),
+  "ia-perjuicio-trabajadores-2025": async () =>
+    import("@/app/(viewer)/ia-perjuicio-trabajadores-2025/presentation").then((m) => ({
+      default: (m as any).default,
+      slides: (m as any).slides,
+      meta: (m as any).meta,
+    })),
 };
 
 export async function resolvePresentation(id: string): Promise<PresentationModule | null> {
