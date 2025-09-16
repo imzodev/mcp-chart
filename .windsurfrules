@@ -61,6 +61,9 @@ Present es un visor de presentaciones que se integra con Windsurf IDE para mostr
   - Priorizar datos verificables y actuales; evitar información especulativa sin soporte
 - Mantener un tono claro y conciso, optimizado para lectura en diapositivas
 
+## 📊 Gráficos y diagramas
+- Usar el MCP Server Chart para generar gráficos y diagramas si esta disponible
+
 ## 🔄 Flujo de Trabajo
 1. Generación:
    - Crear la presentación como `app/(viewer)/[id]/presentation.tsx`
