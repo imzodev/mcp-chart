@@ -1,0 +1,55 @@
+# Reglas de Windsurf para Present
+
+## 📌 Contexto del Proyecto
+Present es un visor de presentaciones que se integra con Windsurf IDE para mostrar presentaciones generadas por Cascade. El foco está en una experiencia de visualización fluida y atractiva.
+
+## 🎨 Estilo de Código
+- **TypeScript estricto** en todo el proyecto
+- **Convenciones de nomenclatura**:
+  - Componentes: `PascalCase` (ej. `SlideViewer.tsx`)
+  - Hooks: prefijo `use` (ej. `usePresentation.ts`)
+  - Utilidades: `camelCase` (ej. `formatDate.ts`)
+- **Estilos**: Usar Tailwind CSS con clases de utilidad
+- **Formato**: 2 espacios para indentación, comillas simples
+
+
+## 🧠 Comportamiento de Cascade
+- **Generación de código**:
+  - Seguir la estructura existente
+  - Crear componentes pequeños y reutilizables
+  - Documentar props con TypeScript
+- **Modificaciones**:
+  - No modificar archivos sin confirmación
+  - Explicar cambios propuestos
+  - Mantener consistencia con el código existente
+- **Presentaciones**:
+  - Crear componentes de React completos para cada presentación
+  - Ubicación: `/app/(viewer)/[id]/presentation.tsx`
+  - Incluir animaciones con Framer Motion
+  - Usar componentes interactivos de shadcn/ui
+  - Implementar navegación entre diapositivas con estado de React
+  - Soporte para temas oscuro/claro
+
+## 🔄 Flujo de Trabajo
+1. **Generación**:
+   - Crear presentaciones como componentes React en `/app/(viewer)/[id]/presentation.tsx`
+   - Usar el patrón de diseño de composición para las diapositivas
+   - Exportar cada presentación como un componente React estándar
+2. **Componentes**:
+   - Crear componentes reutilizables en `/components/viewer`
+   - Usar `forwardRef` para componentes interactivos
+   - Implementar controles de navegación personalizables
+3. **Estados**:
+   - Usar el hook `useState` para el manejo de estado local
+   - Implementar `useReducer` para lógica de presentación compleja
+   - Usar `useContext` para temas y preferencias globales
+4. **Efectos**:
+   - Usar `useEffect` para cargar datos asíncronos
+   - Implementar eventos de teclado para navegación
+   - Gestionar suscripciones y limpieza adecuadamente
+
+## 📝 Directrices Adicionales
+- Priorizar la accesibilidad (a11y)
+- Optimizar el rendimiento de carga
+- Mantener el código limpio y documentado
+- Seguir las mejores prácticas de React 19
