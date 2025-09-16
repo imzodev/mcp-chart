@@ -73,6 +73,17 @@ Present es un visor de presentaciones que se integra con Windsurf IDE para mostr
    - Reutilizar bloques en `components/viewer`
    - Usar `forwardRef` cuando se creen elementos interactivos reutilizables
    - Mantener controles de navegación simples y consistentes
+   - Asegurate que cada diapositiva tenga los siguientes parametros 
+   ```
+   <section className="h-full grid place-items-center p-6">
+    <div className="max-w-7xl w-full">
+    ```
+    - Asegurate que el titulo de la presentacion tenga los siguientes parametros:
+    ```
+    <h2 className="text-2xl lg:text-5xl font-semibold mb-4">
+    ```
+    - Asegurate que el texto de la presentacion sea por lo menos tamaño text-2xl
+
 3. Estados:
    - `useState` para estado local de diapositivas
    - `useReducer` para lógica más compleja de presentaciones
