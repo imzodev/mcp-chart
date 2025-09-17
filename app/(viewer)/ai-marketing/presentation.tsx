@@ -63,17 +63,17 @@ const GenAIWhatChanged = () => (
 
 const AdoptionChart = () => (
   <section className="h-full grid place-items-center p-6">
-    <div className="max-w-4xl w-full">
-      <h2 className="text-2xl md:text-3xl font-semibold mb-2">Adopción de IA en marketing (2019–2025)</h2>
-      <p className="text-sm opacity-70 mb-4">Visualización ilustrativa basada en rangos reportados por fuentes públicas (AllAboutAI 2025; SEO.com 2025).</p>
+    <div className="max-w-7xl w-full">
+      <h2 className="text-2xl lg:text-5xl font-semibold mb-2">Adopción de IA en marketing (2019–2025)</h2>
+      <p className="text-2xl opacity-80 mb-4">Visualización ilustrativa basada en rangos reportados por fuentes públicas (AllAboutAI 2025; SEO.com 2025). Gráfico de área.</p>
       <div className="rounded-lg border border-black/10 dark:border-white/10 overflow-hidden">
         <img
-          src="https://mdn.alipayobjects.com/one_clip/afts/img/uPv4Ta2rC3QAAAAAR4AAAAgAoEACAQFr/original"
-          alt="Línea de adopción de IA en marketing 2019–2025"
+          src="https://mdn.alipayobjects.com/one_clip/afts/img/wSy2RqBqp94AAAAAR-AAAAgAoEACAQFr/original"
+          alt="Gráfico de área: adopción de IA en marketing 2019–2025"
           className="w-full h-auto bg-white"
         />
       </div>
-      <div className="text-xs opacity-60 mt-2">
+      <div className="text-2xl opacity-60 mt-2">
         Fuente: AllAboutAI (2025) · SEO.com (2025)
       </div>
     </div>
@@ -82,17 +82,17 @@ const AdoptionChart = () => (
 
 const UseCasesChart = () => (
   <section className="h-full grid place-items-center p-6">
-    <div className="max-w-4xl w-full">
-      <h2 className="text-2xl md:text-3xl font-semibold mb-2">Casos de uso principales (2025)</h2>
-      <p className="text-sm opacity-70 mb-4">Generación de contenido, personalización, email, ads, chatbots y scoring predictivo lideran.</p>
+    <div className="max-w-7xl w-full">
+      <h2 className="text-2xl lg:text-5xl font-semibold mb-2">Casos de uso principales (2025)</h2>
+      <p className="text-2xl opacity-80 mb-4">Generación de contenido, personalización, email, ads, chatbots y scoring predictivo lideran. Gráfico de columnas.</p>
       <div className="rounded-lg border border-black/10 dark:border-white/10 overflow-hidden">
         <img
-          src="https://mdn.alipayobjects.com/one_clip/afts/img/5aQzTJ6j0fAAAAAATGAAAAgAoEACAQFr/original"
-          alt="Columnas de casos de uso de IA en marketing 2025"
+          src="https://mdn.alipayobjects.com/one_clip/afts/img/mu8iRKpU3E0AAAAAR5AAAAgAoEACAQFr/original"
+          alt="Gráfico de columnas: casos de uso de IA en marketing 2025"
           className="w-full h-auto bg-white"
         />
       </div>
-      <div className="text-xs opacity-60 mt-2">
+      <div className="text-2xl opacity-60 mt-2">
         Fuente: AllAboutAI (2025) · SEO.com (2025)
       </div>
     </div>
@@ -153,17 +153,17 @@ const Chatbots = () => (
 
 const ImpactChart = () => (
   <section className="h-full grid place-items-center p-6">
-    <div className="max-w-4xl w-full">
-      <h2 className="text-2xl md:text-3xl font-semibold mb-2">Impacto en resultados (2023–2025)</h2>
-      <p className="text-sm opacity-70 mb-4">Mejoras en conversiones y productividad reportadas en adopciones recientes de IA.</p>
+    <div className="max-w-7xl w-full">
+      <h2 className="text-2xl lg:text-5xl font-semibold mb-2">Impacto en resultados (2023–2025)</h2>
+      <p className="text-2xl opacity-80 mb-4">Mejoras en conversiones y productividad reportadas en adopciones recientes de IA. Gráfico de columnas agrupadas.</p>
       <div className="rounded-lg border border-black/10 dark:border-white/10 overflow-hidden">
         <img
-          src="https://mdn.alipayobjects.com/one_clip/afts/img/CdHaRac8vbYAAAAASXAAAAgAoEACAQFr/original"
-          alt="Gráfico doble eje: conversiones y productividad con IA 2023–2025"
+          src="https://mdn.alipayobjects.com/one_clip/afts/img/A44xSqXaFN8AAAAARhAAAAgAoEACAQFr/original"
+          alt="Gráfico de columnas agrupadas: conversiones vs productividad 2023–2025"
           className="w-full h-auto bg-white"
         />
       </div>
-      <div className="text-xs opacity-60 mt-2">Fuente: AllAboutAI (2025); tendencias corroboradas por Salesforce State of Marketing (resumen público).</div>
+      <div className="text-2xl opacity-60 mt-2">Fuente: AllAboutAI (2025); tendencias corroboradas por Salesforce State of Marketing (resumen público).</div>
     </div>
   </section>
 )
