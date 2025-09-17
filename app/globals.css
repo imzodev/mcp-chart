@@ -18,15 +18,15 @@ html.dark {
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #1e1b4b; /* indigo-950 */
+  --foreground: #e0e7ff; /* indigo-100 */
 }
 
 /* Fallback to OS preference only when no explicit class is present (pre-hydration) */
 @media (prefers-color-scheme: dark) {
   html:not(.dark):not(.light) {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1e1b4b; /* indigo-950 */
+    --foreground: #e0e7ff; /* indigo-100 */
   }
 }
 
