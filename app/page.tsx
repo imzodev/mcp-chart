@@ -15,6 +15,17 @@ export default async function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto">
+        <section aria-label="Gráfica Minutos vs Puntos" className="mb-8">
+          <h2 className="text-xl md:text-2xl font-semibold mb-3">Minutos vs Puntos (Playoffs)</h2>
+          <div className="rounded-lg border border-black/10 dark:border-white/10 p-3 bg-white dark:bg-zinc-900">
+            <img
+              src="https://mdn.alipayobjects.com/one_clip/afts/img/RT2yR7XMXEoAAAAATDAAAAgAoEACAQFr/original"
+              alt="Dispersión de minutos vs puntos en playoffs (Top 15 jugadores)"
+              className="w-full h-auto rounded-md"
+            />
+            <p className="text-xs opacity-70 mt-2">Generado con MCP Chart; datos tomados de la imagen adjunta.</p>
+          </div>
+        </section>
         {decks.length === 0 ? (
           <p className="text-sm opacity-80">No hay presentaciones registradas todavía.</p>
         ) : (
